@@ -8,7 +8,8 @@ import style from './login.less'
 
 @connect(
   (state, props) => ({
-    config: state.config,
+    state2:state,
+    loginInfo: state.loginReducer,
   })
 )
 
@@ -17,14 +18,29 @@ export default class Login extends React.Component {
     super(props)
     this.state = {
       loading: false,
-      name: 'dinglei',
-      rename: ''
+      name: '',
+      password: ''
     }
     this.clickHandler = this.clickHandler.bind(this)
-    this.changeHandler = this.changeHandler.bind(this)
+    this.changeName = this.changeName.bind(this)
+    this.changePwd = this.changePwd.bind(this)
+    this.validateInfo = this.validateInfo.bind(this)
+  }
+  validateInfo(){
+    console.log(this.state)
+    let info = {
+      name:'dinglei5959',
+      password:'qqq123'
+    }
+    if (this.state.name === info.name && this.state.password === info.password){
+      this.props.dispatch({
+        type:'LOGINED'
+      })
+    }else{
+      alert('账号或密码不对！')
+    }
   }
   clickHandler() {
-    console.log(this)
     this.setState({
       loading: false,
       name: this.state.rename,
@@ -35,26 +51,26 @@ export default class Login extends React.Component {
     this.state.name = e.target.value
     this.setState(this.state)
   }
-  changeHandler(e) {
-    this.state.rename = e.target.value
+  changePwd(e) {
+    this.state.password = e.target.value
     this.setState(this.state)
   }
   render() {
     return (
       <article className='login-root'>
         <article className="login-container">
-          <div>
+          {/* <div>
             <img src={require('../../assets/login.png')} className="icon" alt=""/>
             <input type="text" placeholder="账号输入" onChange={this.changeName} value={this.state.name} />
           </div>
           <div>
             <img src={require('../../assets/password.png')} className="icon" alt="" />
             <input type="password" placeholder="输入密码" value={this.state.rename} onChange={this.changeHandler} />
-          </div>
-          <LoginInput type='text' src={require('../../assets/login.png')} placerholder='账号输入'></LoginInput>
-          <LoginInput type='password' src={require('../../assets/password.png')} placerholder='输入密码'></LoginInput>
+          </div> */}
+          <LoginInput type='text' change={this.changeName.bind(this)} src={require('../../assets/login.png')} placerholder='账号输入'></LoginInput>
+          <LoginInput type='password' change={this.changePwd.bind(this)} src={require('../../assets/password.png')} placerholder='输入密码'></LoginInput>
           <div>
-            <section className='login-btn'>登录</section>
+            <section onClick={this.validateInfo} className='login-btn'>登录</section>
           </div>
         </article>
       </article>

@@ -3,18 +3,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router } from 'react-router'
 import { Provider } from 'react-redux'
-import { syncHistoryWithStore } from 'react-router-redux'
+import { store, history} from './lib/global.js'
 import routes from './routes'
-import configure from './store/configureStore.jsx'
-import myhistory from './history'
 
-import './style/normalize.less'
-import './style/base.less'
-
-const store = configure({ config: 'dinglei' })
-const history = syncHistoryWithStore(myhistory, store)
 // history.listen(location => console.log('location:', location))
 // history.listen(function (location) { return location })
+
+// console.log('store', store)
+// console.log('history', history)
 
 ReactDOM.render( // 将store 放到 context  下面的provider
   <Provider store={store}>
