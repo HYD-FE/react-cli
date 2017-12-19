@@ -1,0 +1,32 @@
+.fullfill{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.flexmiddle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square(@size){
+  width: @size;
+  height: @size;
+}
+
+.rect(@width,@height){
+  width:@width;
+  height:@height;
+}
+
+.button(@width,@height,@background,@border,@radius,@align:center){
+  .rect(@width,@height);
+  line-height: @height;
+  background: @background;
+  border:@border;
+  border-radius: @radius;
+  text-align: @align;
+}

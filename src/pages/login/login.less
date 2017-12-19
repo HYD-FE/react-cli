@@ -1,0 +1,41 @@
+@import '../../style/block.less';
+
+.login-input{
+  background: transparent;
+  border: 0;
+}
+
+.login-root{
+  background: url(../../assets/starry.jpg);
+  &:extend(.fullfill);
+  &:extend(.flexmiddle);
+  .login-container{
+   // .rect(300px,200px);
+    padding:50px 50px;
+    background: rgba(0, 0, 0, .4);
+    border-radius: 5px;
+    &:extend(.flexmiddle);
+    flex-direction: column;
+    color:#fff;
+    &>div{
+      margin-bottom: 5px;
+      .icon{
+        .square(20px);
+        display: inline-block;
+      }
+      input{
+        &:extend(.login-input);
+        outline: 0;
+        margin-left: 20px;
+      }
+      .login-btn{
+        .button(130px,40px,transparent,2px solid green,10px);
+        color:green;
+        font-weight: bold;
+        position: relative;
+        margin-top: 20px;
+      }
+    }
+    
+  }
+}

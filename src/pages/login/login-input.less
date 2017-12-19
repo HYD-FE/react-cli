@@ -1,0 +1,19 @@
+ @import '../../style/block.less';
+
+ .login__input{
+    background: transparent;
+    border: 0;
+  }
+ 
+ .login-input{
+    margin-bottom: 5px;
+    .icon{
+      .square(20px);
+      display: inline-block;
+    }
+    input{
+      &:extend(.login__input);
+      outline: 0;
+      margin-left: 20px;
+    }
+  }
