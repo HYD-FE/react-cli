@@ -3,8 +3,8 @@ import {
   Route,
   IndexRoute
 } from 'react-router'
-import Login from '@src/pages/login/login.jsx'
-import Welcome from '@src/pages/welcome.jsx'
+import { Welcome, Login} from '@pages'
+import container from '@src/container/index.jsx'
 
 /* 进入路由的判断 */
 function isLogin (nextState, replaceState) {
@@ -16,7 +16,7 @@ function isLogin (nextState, replaceState) {
 
 const routes = (
   <Route>
-    <Route path='/' onEnter={isLogin}>
+    <Route path='/' component={container} onEnter={isLogin}>
       <IndexRoute component={Welcome} />
     </Route>
     <Route path='/login' component={Login} />

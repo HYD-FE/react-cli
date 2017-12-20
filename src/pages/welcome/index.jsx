@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import './index.less'
+
 @connect((state,props)=>({
   state2:state,
   props2:props
@@ -13,8 +15,8 @@ export default class Welcome extends React.Component {
   render(){
     console.log(this)
     return (
-      <article>
-        登录成功啦，react好难，请加油！！
+      <article className="welcome">
+        唯坚持和耐心不负所爱,加油！！！
       </article>
     )
   }

@@ -1,0 +1,39 @@
+@import './variable.less';
+@import './block.less';
+
+
+.container-root{
+  &:extend(.fullfill);
+  z-index:@rootIndex;
+  &>article,&>header{ //直系部分
+    display: block;
+    position: absolute;
+    &.contaniner-header{  //头部
+      background-color:#373D41;
+      z-index: @headerIndex;
+      .rect(100%,@headerHeight);
+      color:#fff;
+      &>section{
+        &.logo{
+          line-height:@headerHeight;
+          font-size: 20px;
+          padding-left: 20px;
+          &>img{
+            .square(25px);
+          } 
+        }
+      }
+    }
+    &.leftBars{ //左导航
+      background-color: #42485B;
+      z-index: @leftBarsIndex;
+      .rect(@barsWidth,100%);
+    }
+    &.container-body{
+      box-sizing: border-box;
+      z-index: @bodyIndex;
+      .rect(100%,100%);
+      padding:@headerHeight 0 0 @barsWidth;
+    }
+  }
+}
