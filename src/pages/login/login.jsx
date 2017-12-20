@@ -8,6 +8,7 @@ import style from './login.less'
 
 @connect(
   (state, props) => ({
+    props2:props,
     state2:state,
     loginInfo: state.loginReducer,
   })
@@ -25,6 +26,12 @@ export default class Login extends React.Component {
     this.changeName = this.changeName.bind(this)
     this.changePwd = this.changePwd.bind(this)
     this.validateInfo = this.validateInfo.bind(this)
+  }
+  componentWillMount(){
+    console.log(this)
+    if(window.sessionStorage.getItem('token')){
+      this.props.router.push({pathname:'/'})
+    }
   }
   validateInfo(){
     console.log(this.state)
