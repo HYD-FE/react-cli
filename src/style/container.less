@@ -8,7 +8,8 @@
   &>article,&>header{ //直系部分
     display: block;
     position: absolute;
-    &.contaniner-header{  //头部
+    /*头部start*/
+    &.contaniner-header{  
       background-color:#373D41;
       z-index: @headerIndex;
       .rect(100%,@headerHeight);
@@ -24,11 +25,28 @@
         }
       }
     }
-    &.leftBars{ //左导航
+     /*头部end*/
+     /*左导航start*/
+    &.leftBars{ 
       background-color: #42485B;
       z-index: @leftBarsIndex;
       .rect(@barsWidth,100%);
+      color:#fff;
+      padding-top: @headerHeight;
+      font-size: 14px;
+      box-sizing: border-box;
+      &>div{
+        padding: 10px;
+        line-height: 20px;
+        cursor: pointer;
+        &>img{
+          .square(15px);
+          vertical-align: middle;
+          margin-right: 20px;
+        }
+      }
     }
+     /*左导航end*/
     &.container-body{
       box-sizing: border-box;
       z-index: @bodyIndex;

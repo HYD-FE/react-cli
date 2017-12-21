@@ -7,7 +7,7 @@ export default class Header extends React.Component {
   render () {
     return (
       <header className='contaniner-header'>
-        <section className='logo'><img className src={require('../assets/group.png')} alt='' />HYD</section>
+        <section className='logo'><img src={require('../assets/group.png')} alt='' />HYD</section>
       </header>
     )
   }

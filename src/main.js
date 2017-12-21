@@ -14,9 +14,7 @@ import routes from './routes'
 
 ReactDOM.render( // 将store 放到 context  下面的provider
   <Provider store={store}>
-    <Router history={history} >
-      {routes}
-    </Router>
+    <Router history={history} routes={routes} />
   </Provider>,
   document.getElementById('root')
 )

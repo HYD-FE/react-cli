@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import Header from './Header.jsx'
+import LeftBars from './leftBars.jsx'
 
 import '../style/container.less'
 
@@ -14,11 +15,11 @@ export default class Container extends React.Component {
     super(props)
   }
   render(){
-    const { location, children } = this.props
+    const { location, children ,router} = this.props
     return (
       <article className="container-root">
         <Header></Header>
-        <article className="leftBars"></article>
+        <LeftBars router={router}></LeftBars>
         <article className="container-body">
           {children}
         </article>

@@ -13,7 +13,7 @@ export default class Welcome extends React.Component {
     super(props)
   }
   render(){
-    console.log(this)
+    console.log('welcome',this)
     return (
       <article className="welcome">
         唯坚持和耐心不负所爱,加油！！！
