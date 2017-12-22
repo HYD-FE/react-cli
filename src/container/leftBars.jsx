@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect}  from 'react-redux'
+import {Menus} from '@comps'
 
 @connect((state,props)=>({  //dispatch 等连接的东西
   navlist: state.config && state.config.navList ? state.config.navList:[],
@@ -9,11 +10,6 @@ import {connect}  from 'react-redux'
 export default class LeftBars extends React.Component {
   constructor (props,context) {
     super(props)
-    this.clickHandler = this.clickHandler.bind(this)
-  }
-
-  clickHandler(e){
-    this.props.router.push({ pathname: e.target.getAttribute('url')})
   }
 
   render () {
@@ -21,7 +17,12 @@ export default class LeftBars extends React.Component {
     let list = this.props.navlist
     let items = []
     list.forEach((e,i)=>{
-      items.push(<div key={i} url={e.url} onClick={this.clickHandler} ><img src={require('../assets/drag.png')} alt="" />{e.name}</div>)
+      //items.push(<div key={i} url={e.url} onClick={this.clickHandler} ><img src={require('../assets/drag.png')} alt="" />{e.name}</div>)
+      if(e.children){
+        items.push(<Menus key={i} children={e.children} text={e.name}></Menus>)
+      }else{
+        items.push(<Menus key={i} url={e.url} text={e.name}></Menus>)
+      }
     })
     return (
       <article className='leftBars'>

@@ -21,7 +21,9 @@ export default class Container extends React.Component {
         <Header></Header>
         <LeftBars router={router}></LeftBars>
         <article className="container-body">
-          {children}
+          <article>
+            {children}
+          </article>
         </article>
       </article>
     )

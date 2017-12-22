@@ -35,23 +35,19 @@
       padding-top: @headerHeight;
       font-size: 14px;
       box-sizing: border-box;
-      &>div{
-        padding: 10px;
-        line-height: 20px;
-        cursor: pointer;
-        &>img{
-          .square(15px);
-          vertical-align: middle;
-          margin-right: 20px;
-        }
-      }
+      
     }
      /*左导航end*/
+     /*身体body start*/
     &.container-body{
+      position: relative;  //防止孩子的绝对定位等溢出
       box-sizing: border-box;
       z-index: @bodyIndex;
       .rect(100%,100%);
       padding:@headerHeight 0 0 @barsWidth;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
+    /*身体body end*/
   }
 }

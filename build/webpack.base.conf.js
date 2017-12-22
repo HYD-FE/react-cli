@@ -27,7 +27,8 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
       '@src': resolve('src'),
-      '@pages': resolve('src/pages')
+      '@pages': resolve('src/pages'),
+      '@comps': resolve('src/components')
     }
   },
   module: {

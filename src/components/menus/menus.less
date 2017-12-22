@@ -1,0 +1,31 @@
+@import '../../style/block.less';
+
+#leftNavBars{
+  .menus{
+    display: flex;
+    user-select:none;
+    padding: 10px;
+    line-height: 20px;
+    cursor: pointer;
+    &>img{
+      .square(15px);
+      vertical-align: middle;
+      margin-right: 20px;
+      transition: transform .2s ease;
+    }
+    &.active{
+      opacity: .5;
+    }
+    &.open{
+      &>img{
+        transform: rotateZ(180deg)
+      }
+    }
+  }
+  .children{
+    overflow: hidden;
+    transition: height .2s ease,opacity .2s ease;
+  }
+}
+
+
