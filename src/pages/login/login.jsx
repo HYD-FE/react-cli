@@ -28,13 +28,11 @@ export default class Login extends React.Component {
     this.validateInfo = this.validateInfo.bind(this)
   }
   componentWillMount(){
-    console.log(this)
     if(window.sessionStorage.getItem('token')){
       this.props.router.push({pathname:'/'})
     }
   }
   validateInfo(){
-    console.log(this.state)
     let info = {
       name:'dinglei5959',
       password:'qqq123'

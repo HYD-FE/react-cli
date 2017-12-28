@@ -11,8 +11,14 @@ import './index.less'
 export default class Table extends React.Component {
   constructor(props, context) {
     super(props)
+    console.log(React)
+    // this.contextTypes =  {
+    //   router: React.PropTypes.object
+    // }
   }
   render() {
+    // console.log(this)
+    // console.log(this.context.history)
     return (
       <article className="table">
         唯坚持和耐心不负所爱,加油！！！
@@ -21,3 +27,9 @@ export default class Table extends React.Component {
     )
   }
 }
+
+//console.log(React)
+
+// Table.contextTypes = {
+//   router: React.PropsTypes.object
+// }

@@ -14,6 +14,7 @@ export default class Container extends React.Component {
   constructor(props){
     super(props)
   }
+
   render(){
     const { location, children ,router} = this.props
     return (
