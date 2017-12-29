@@ -1,0 +1,62 @@
+
+.border(@top,@right,@bottom,@left,@color){
+  border-top: @top solid @color;
+  border-right: @right solid @color;
+  border-bottom: @bottom solid @color;
+  border-left: @left solid @color;
+}
+
+.table-root{
+  display: table;
+  border: 2px solid #000;
+  border-radius: 5px;
+  width: 100%;
+  &>section{
+    .table-cell{  //表格通用单元格start
+      display: table-cell;
+      padding: 10px 20px;
+      .border(1px,1px,1px,1px,#000);
+      &.no-top-left{
+        .border(0px,1px,1px,0px,#000);
+      }
+      &.no-top{
+        .border(0px,1px,1px,1px,#000);
+      }
+      &.no-top-right{
+        .border(0px,0px,1px,1px,#000);
+      }
+      &.no-left{
+        .border(1px,1px,1px,0px,#000);
+      }
+       &.no-right{
+        .border(1px,0px,1px,1px,#000);
+      }
+      &.no-bottom-left{
+        .border(1px,1px,0px,0px,#000);
+      }
+      &.no-bottom{
+        .border(1px,1px,0px,1px,#000);
+      }
+      &.no-bottom-right{
+        .border(1px,0px,0px,1px,#000);
+      }
+    }//表格通用单元格end
+    
+    &.table-header{  //表格头部分start
+      display: table-row;
+    } //表格头部分end
+
+    &.table-body{ //表格身体部分start
+      display: table-row-group;
+      .table-body-row{
+        display: table-row;
+      }
+    }//表格身体部分end
+  }
+}
+
+
+.table-footer{ //表格尾巴部分start
+  width: 100%;
+ // .border(0px,1px,1px,1px,#000);  
+} //表格身体部分end

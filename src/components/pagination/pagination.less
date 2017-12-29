@@ -1,0 +1,65 @@
+@import '../../style/block.less';
+
+
+@border:1px solid #000;
+@hornboder:2px solid #000;
+@size:17px;
+
+.horn(@border){
+  border-top: @border;
+  border-left: @border;
+}
+
+.pagination-root{
+  display: flex;
+  padding: 10px;
+  line-height:@size;
+  &>img{
+    cursor: pointer;
+    .square(25px);
+    &.pagination-forward{
+      transform: rotateZ(180deg);
+    }
+     &.pagination-backward{
+      transform: rotateZ(0deg);
+    }
+    &:hover{
+      opacity: .6;
+    }
+  }
+  &>div{
+    &.pagination-btn{
+      .horn(@hornboder);
+      .square(@size);
+    }
+    &.pagination-num{
+      display: flex;
+      &>div{
+        &.pagination-num-specific{  //数字
+          user-select: none;
+          min-width: 20px;
+          border: @border;
+          width: auto;
+          text-align: center;
+          padding: 2px;
+          margin-right: 1px;
+          cursor: pointer;
+          transition: background-color .2s ease,color .2s ease-in;
+          &.selected{
+            background-color: #666;
+            color:#fff;
+          }
+          &:hover{
+            background-color: #999;
+            border: 1px solid #999;
+            color:#fff;
+            &.selected{
+              background-color: #333;
+              border: 1px solid #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
