@@ -42,7 +42,7 @@ export default class Table extends React.Component {
               return (
                 <div className='table-body-row' key={`body${_i}`}>
                   {this.props.header.map((e, i) => {
-                    return (<div className={`table-cell ${this.getCellType(i, this.props.header.length, _i + 1 === this.props.data.length ? 'bottom' : '')}`} key={`header${i}`}>{_e[e.name]}</div>)
+                    return (<div style={{ maxWidth: this.props.cellMaxWidth }} className={`table-cell ${this.getCellType(i, this.props.header.length, _i + 1 === this.props.data.length ? 'bottom' : '')}`} key={`header${i}`}>{_e[e.name]}</div>)
                   })}
                 </div>
               )

@@ -28,8 +28,6 @@ function getAllLists (navbars) {  // 抽离出navbars  改造成routes
 
 let routeslist = getAllLists(navbars)
 
-console.log(routeslist)
-
 /* 进入路由的判断 */
 function isLogin (nextState, replaceState) {
   const token = window.sessionStorage.getItem('token')
@@ -39,7 +37,6 @@ function isLogin (nextState, replaceState) {
 }
 
 const componentGet = (name) => (location, cb) => {
-  console.log('@pages' + name)
   require.ensure([],
     require => {
       cb(null, require('@pages/' + name).default)

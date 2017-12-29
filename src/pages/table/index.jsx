@@ -16,7 +16,7 @@ export default class TableDemo extends React.Component {
     this.state = {
       header: [{ text: '姓名', name: 'name' }, { text: '年龄', name: 'age' }, { text: '年级', name: 'class' }, { text: '成绩', name: 'mark' }],
       data: [
-        { name: 'dinglei', age: '27', class: '小学3年级', mark: '96' },
+        { name: 'dinglei无敌党风建设路口附近的时空裂缝剑荡四方接口了的技术开发都是垃圾开放空间', age: '27', class: '小学3年级', mark: '96' },
         { name: 'yaoran', age: '16', class: '学前班', mark: '22' },
         { name: 'huguangnan', age: '22', class: '幼儿园1级', mark: '58' }
       ],
@@ -44,7 +44,7 @@ export default class TableDemo extends React.Component {
     return (
       <article className="table">
         唯坚持和耐心不负所爱,加油！！！
-        <Table selectHandler={this.selectHandler.bind(this)} header={this.state.header} data={this.state.data} pagination={this.state.pagination}></Table>
+        <Table cellMaxWidth='100px' selectHandler={this.selectHandler.bind(this)} header={this.state.header} data={this.state.data} pagination={this.state.pagination}></Table>
       </article>
     )
   }
