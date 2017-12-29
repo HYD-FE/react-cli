@@ -54,14 +54,14 @@ export default class Pagination extends React.Component {
     return (
       <article className='pagination-root'>
         {/* <div className='pagination-btn pagination-backward' /> */}
-        <img className='pagination-btn pagination-backward' src={require('../../assets/leftgotiny.png')} alt='' />
-        <img className='pagination-btn pagination-backward' src={require('../../assets/leftgo.png')} alt='' />
+        <img onClick={() => { this.props.callback(1) }} className='pagination-btn pagination-backward' src={require('../../assets/leftgotiny.png')} alt='' />
+        <img onClick={() => { this.props.callback(this.props.pageNo - 1) }} className='pagination-btn pagination-backward' src={require('../../assets/leftgo.png')} alt='' />
         <div className='pagination-num'>
           {this.producePage(this.props.pageSize, this.props.total, this.props.pageNo)}
         </div>
         {/* <div className='pagination-btn pagination-forward' /> */}
-        <img className='pagination-btn pagination-forward' src={require('../../assets/leftgo.png')} alt='' />
-        <img className='pagination-btn pagination-forward' src={require('../../assets/leftgotiny.png')} alt='' />
+        <img onClick={() => { this.props.callback(this.props.pageNo + 1) }} className='pagination-btn pagination-forward' src={require('../../assets/leftgo.png')} alt='' />
+        <img onClick={() => { this.props.callback(Math.ceil(this.props.total / this.props.pageSize)) }} className='pagination-btn pagination-forward' src={require('../../assets/leftgotiny.png')} alt='' />
       </article>
     )
   }
