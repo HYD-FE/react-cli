@@ -83,19 +83,20 @@ export default class Menus extends React.Component {
     } else {  // 无孩子进行链接跳转操作
       if (window.global && window.global.history) {
         if (window.global.history.getCurrentLocation().pathname !== this.props.url) {
-          window.global.history.push({ pathname: this.props.url })
+          window.global.history.push({ pathname: '/'+this.props.url })
         }
       }
     }
   }
 
   render () {
+   // console.log(this.props)
     return (
       <article id='leftNavBars'>
         <div onClick={this.clickHandler}
           className={`
             menus 
-            ${this.props.url && this.props.routepath&&this.props.url === this.props.routepath ? 'active' : ''}
+            ${this.props.url && this.props.routepath&&'/'+this.props.url === this.props.routepath ? 'active' : ''}
             ${this.state.isOpen && this.props.children ? 'open' : ''}
           `}>
           <img src={this.props.children ? require('../../assets/drag.png') : require('../../assets/url.png')} alt='' />
