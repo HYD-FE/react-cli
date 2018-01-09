@@ -1,4 +1,7 @@
 
+
+@borderColor:#E7E9EA;
+@headerBackColor:rgba(222, 219, 215, 0.658);
 .border(@top,@right,@bottom,@left,@color){
   border-top: @top solid @color;
   border-right: @right solid @color;
@@ -8,42 +11,45 @@
 
 .table-root{
   display: table;
-  border: 2px solid #000;
+  border: 2px solid @borderColor;
   border-radius: 5px;
   width: 100%;
   &>section{
     .table-cell{  //表格通用单元格start
       display: table-cell;
-      padding: 10px 20px;
-      .border(1px,1px,1px,1px,#000);
+      padding:10px;
+      .border(1px,1px,1px,1px,@borderColor);
       &.no-top-left{
-        .border(0px,1px,1px,0px,#000);
+        .border(0px,1px,1px,0px,@borderColor);
       }
       &.no-top{
-        .border(0px,1px,1px,1px,#000);
+        .border(0px,1px,1px,1px,@borderColor);
       }
       &.no-top-right{
-        .border(0px,0px,1px,1px,#000);
+        .border(0px,0px,1px,1px,@borderColor);
       }
       &.no-left{
-        .border(1px,1px,1px,0px,#000);
+        .border(1px,1px,1px,0px,@borderColor);
       }
        &.no-right{
-        .border(1px,0px,1px,1px,#000);
+        .border(1px,0px,1px,1px,@borderColor);
       }
       &.no-bottom-left{
-        .border(1px,1px,0px,0px,#000);
+        .border(1px,1px,0px,0px,@borderColor);
       }
       &.no-bottom{
-        .border(1px,1px,0px,1px,#000);
+        .border(1px,1px,0px,1px,@borderColor);
       }
       &.no-bottom-right{
-        .border(1px,0px,0px,1px,#000);
+        .border(1px,0px,0px,1px,@borderColor);
       }
     }//表格通用单元格end
     
     &.table-header{  //表格头部分start
       display: table-row;
+      background-color: @headerBackColor;
+      font-weight: bold;
+      .table-cell{padding: 5px 10px;}
     } //表格头部分end
 
     &.table-body{ //表格身体部分start
@@ -58,5 +64,5 @@
 
 .table-footer{ //表格尾巴部分start
   width: 100%;
- // .border(0px,1px,1px,1px,#000);  
+ // .border(0px,1px,1px,1px,@borderColor);  
 } //表格身体部分end

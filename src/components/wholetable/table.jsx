@@ -3,7 +3,7 @@ import Pagination from '../pagination'
 
 import './table.less'
 
-export default class Table extends React.Component {
+export default class WTable extends React.Component {
   constructor (props) {
     super(props)
     this.getCellType = this.getCellType.bind(this)

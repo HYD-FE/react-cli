@@ -1,38 +1,35 @@
 @import '../../style/block.less';
 
+@green:#2ecdbe;
+@grey:#d8d8d8;
 
-@border:1px solid #000;
-@hornboder:2px solid #000;
-@size:17px;
+@border:1px solid @grey;  //边框
+@size:20px;
 
-.horn(@border){
-  border-top: @border;
-  border-left: @border;
-}
+@numSelectedColor:@green;   //选中后的 数字框  背景颜色
+@numBorderHoverColor:rgb(58, 189, 128);
+@numfontcolor:#fff;  //选中或hover后数字键的文字颜色
+@numbr:5px;  //border-radius
 
 .pagination-root{
+  color:black;
   display: flex;
   padding: 10px;
   line-height:@size;
-  &>img{
-    cursor: pointer;
-    .square(25px);
-    &.pagination-forward{
-      transform: rotateZ(180deg);
-    }
-     &.pagination-backward{
-      transform: rotateZ(0deg);
-    }
-    &:hover{
-      opacity: .6;
-    }
-  }
   &>div{
-    &.pagination-btn{
-      .horn(@hornboder);
-      .square(@size);
+    &.pagination-pageSize{
+      display: flex;
+      margin: 0 10px;
+      &>div{
+        &.pagination-pageSize-cell{ //pagesize各个单元格的设置
+          border: @border;
+          padding: 4px;
+          .flexmiddle;
+          &:first-child{border-right: 0;padding:4px 15px;user-select: none;}
+        }
+      }
     }
-    &.pagination-num{
+    &.pagination-num{  //数字键
       display: flex;
       &>div{
         &.pagination-num-specific{  //数字
@@ -41,28 +38,47 @@
           border: @border;
           width: auto;
           text-align: center;
-          padding: 2px;
-          margin-right: 1px;
+          padding: 4px;
           cursor: pointer;
           transition: background-color .2s ease,color .2s ease-in;
-          &.selected{
-            background-color: #666;
-            color:#fff;
-          }
-          &:hover{
-            background-color: #999;
-            border: 1px solid #999;
-            color:#fff;
-            &.selected{
-              background-color: #333;
-              border: 1px solid #333;
+          &.pagination-num-direct{ //方向按钮
+            .flexmiddle;
+            &>div{
+              .horn(1.5px solid @grey,7px);
+              cursor: pointer;
+              &.pagination-num-direct-forward{
+                transform: rotateZ(-45deg);
+              }
+              &.pagination-num-direct-backward{
+                 transform: rotateZ(135deg);
+              }
             }
           }
-        }
-      }
-      &>span{
-        &.ellipsis{
-          padding: 0 5px;
+          &+.pagination-num-specific{  //左边框变为0  为了
+            border-left: 0;
+            &.pagination-num-other{
+              cursor: auto;
+            }
+          }
+          &.selected{
+            background-color: @numSelectedColor;
+            border-color: @numSelectedColor;
+            color:@numfontcolor;
+          }
+          &:hover{
+            background-color: @numBorderHoverColor;
+            border-color:@numBorderHoverColor;
+            color:@numfontcolor;
+            &.selected{  //select过后的hover保持不变
+              background-color: @numSelectedColor;
+              border-color:@numSelectedColor;
+            }
+            &.pagination-num-other{
+              background-color:transparent;
+              border-color:@grey;
+              color:black;
+            }
+          }
         }
       }
     }

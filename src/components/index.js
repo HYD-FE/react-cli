@@ -1,4 +1,4 @@
 import Menus from './menus'
-import Table from './table'
+import WholeTable from './wholetable'
 
-export { Menus, Table }
+export { Menus, WholeTable }

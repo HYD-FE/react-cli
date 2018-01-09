@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import {Table} from '@comps'
+import {WholeTable} from '@comps'
 
 import './index.less'
 
@@ -44,7 +44,7 @@ export default class TableDemo extends React.Component {
     return (
       <article className="table">
         唯坚持和耐心不负所爱,加油！！！
-        <Table cellMaxWidth='100px' selectHandler={this.selectHandler.bind(this)} header={this.state.header} data={this.state.data} pagination={this.state.pagination}></Table>
+        <WholeTable cellMaxWidth='100px' selectHandler={this.selectHandler.bind(this)} header={this.state.header} data={this.state.data} pagination={this.state.pagination}></WholeTable>
       </article>
     )
   }

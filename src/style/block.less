@@ -30,3 +30,17 @@
   border-radius: @radius;
   text-align: @align;
 }
+
+.horn(@border,@size){   // 直角形
+  border-top: @border;
+  border-left: @border;
+  width: @size;
+  height: @size;
+}
+
+.traingle(@expandsize,@addsize,@color){  //小三角形
+  border-top: @expandsize solid @color;
+  border-left: @expandsize solid rgba(43, 19, 179,0);
+  border-right: @expandsize solid rgba(26, 209, 26,0);
+  border-bottom: 0;
+}
