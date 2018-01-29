@@ -29,13 +29,15 @@ export default class TableDemo extends React.Component {
     this.selectHandler = this.selectHandler.bind(this)
   }
 
-  selectHandler(selectIndex){
+  selectHandler(changedPageNo,changedPageSize){  //  事件回调函数
     let data = [
-      { name: 'tingting', age: '25', class: '小学3年级', mark: selectIndex },
-      { name: 'yalin', age: '25', class: '学前班', mark: selectIndex },
-      { name: 'wanjiao', age: '25', class: '幼儿园1级', mark: selectIndex }
+      { name: 'tingting', age: '25', class: '小学3年级', mark: changedPageNo },
+      { name: 'yalin', age: '25', class: '学前班', mark: changedPageNo },
+      { name: 'wanjiao', age: '25', class: '幼儿园1级', mark: changedPageNo }
     ]
-    this.state.pagination.pageNo = selectIndex
+    console.log()
+    this.state.pagination.pageNo = changedPageNo
+    changedPageSize&&(this.state.pagination.pageSize = changedPageSize)
     this.state.data = data
     this.setState(this.state)
   }

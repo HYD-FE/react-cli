@@ -51,7 +51,7 @@ export default class WTable extends React.Component {
 
         </article>
         <article className='table-footer'>
-          <Pagination callback={this.props.selectHandler} pageNo={this.props.pagination.pageNo} pageSize={this.props.pagination.pageSize} total={this.props.pagination.total} />
+          <Pagination reset={this.props.reset} callback={this.props.selectHandler} pageNo={this.props.pagination.pageNo} pageSize={this.props.pagination.pageSize} total={this.props.pagination.total} />
         </article>
       </article>
     )

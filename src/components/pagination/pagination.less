@@ -2,14 +2,18 @@
 
 @green:#2ecdbe;
 @grey:#d8d8d8;
+@blue:#5897fb;
+@white:#fff;
 
 @border:1px solid @grey;  //边框
 @size:20px;
 
 @numSelectedColor:@green;   //选中后的 数字框  背景颜色
 @numBorderHoverColor:rgb(58, 189, 128);
-@numfontcolor:#fff;  //选中或hover后数字键的文字颜色
+@numfontcolor:@white;  //选中或hover后数字键的文字颜色
 @numbr:5px;  //border-radius
+
+@pageSizeTypeBackColor:@blue;
 
 .pagination-root{
   color:black;
@@ -17,15 +21,38 @@
   padding: 10px;
   line-height:@size;
   &>div{
-    &.pagination-pageSize{
+    &.pagination-pageSize{  //选择页的区域
+      position: relative;
       display: flex;
       margin: 0 10px;
+      cursor: pointer;
       &>div{
         &.pagination-pageSize-cell{ //pagesize各个单元格的设置
           border: @border;
           padding: 4px;
           .flexmiddle;
           &:first-child{border-right: 0;padding:4px 15px;user-select: none;}
+        }
+        &.pagination-pageSize-number{ 
+          &>.pagination-pageSize-type{  //下拉的框设置
+            position: absolute;
+            top:100%;
+            left: 0;
+            border:@border;
+            width: 100%;
+            box-sizing: border-box;  //宽度
+            &>div{  //pageSize选择的单元格
+              padding: 5px;
+              &:hover{
+                background-color:@pageSizeTypeBackColor;
+                color:@white;
+              }
+              &.selecedPageSize{
+                background-color: @grey;
+                color:@white;
+              }
+            }
+          }
         }
       }
     }
@@ -82,5 +109,30 @@
         }
       }
     }
+    &.pagination-go{ //go 动作区域
+      display: flex;
+      margin: 0 10px;
+      &>div{
+        &.pagination-go-cell{
+          border: @border;
+          margin:0 5px;
+          line-height: @size;
+          .flexmiddle;
+        }
+        &.pagination-go-input{
+          &>input{width: 30px;border: 0;outline: none;padding:0 3px;text-align: center;}
+        }
+        &.pagination-go-btn{
+          padding: 0 5px;
+          color:rgb(56, 49, 49);
+          cursor: pointer;
+          user-select: none;
+        }
+      }
+    }
   }
+}
+
+.hidden{
+  display: none;
 }
